@@ -1,7 +1,7 @@
 xontrib-enhancd
 ===============================
 
-b4b4r07/enhancd for xonsh
+[b4b4r07/enhancd](https://github.com/b4b4r07/enhancd) for xonsh
 
 Installation
 ------------
@@ -13,18 +13,19 @@ To install use pip:
 
 Or clone the repo:
 
-    $ git clone https://github.com/sun-yryr/enhancd.git
-    $ xpip install -e ./enhancd
+    $ pip install git+https://github.com/sun-yryr/enhancd
 
 Usage
 -----
 
-TODO
+in xonsh
+
+    $ xontrib load enhancd
 
 Contributing
 ------------
 
-TODO
+[sun-yryr](https://twitter.com/taittide)
 
 Credits
 ---------
