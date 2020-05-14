@@ -29,6 +29,6 @@ setup(
     ],
     packages = ['xontrib'],
     package_dir = {'xontrib': 'xontrib'},
-    package_data = {'xontrib': ['*.xsh', '*.py']},
+    package_data = {'xontrib': ['./**/*.py']},
     platforms = 'any',
 )
