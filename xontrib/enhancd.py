@@ -1,7 +1,7 @@
 import xonsh
-from .src.cd import __main
-from .src.variable import reload_variables, ENHANCD_DIR
-from .src import x_aliases, x_execer
+from .enhancd_lib.cd import __main
+from .enhancd_lib.variable import reload_variables, ENHANCD_DIR
+from .enhancd_lib import x_aliases, x_execer
 
 __all__ = ()
 
