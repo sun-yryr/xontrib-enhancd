@@ -36,9 +36,9 @@ def get_history_list(keyword=None):
 def get_latest_history(keyword: str=None):
     if ENHANCD_DISABLE_HYPHEN == 1:
         return OLDPWD
-    l = history.get_history_list()
-    if __xonsh__.env["HOME"] in l:
-        l.remove(__xonsh__.env["HOME"])
+    l = get_history_list()
+    if x_env["HOME"] in l:
+        l.remove(x_env["HOME"])
     l = l[:int(ENHANCD_HYPHEN_NUM)]
     return l
 
