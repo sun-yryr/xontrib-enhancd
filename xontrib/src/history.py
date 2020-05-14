@@ -7,7 +7,7 @@ def open_history():
         return f.read().rstrip("\n").split("\n")
 
 def update_history():
-    history = filepath.list_step(reverse=True)
+    history = filepath.list_parents(reverse=True)
     history.extend(filepath.list_children())
     history.extend(open_history())
     history.append(str(Path().resolve()))
