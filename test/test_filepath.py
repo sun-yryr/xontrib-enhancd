@@ -1,5 +1,5 @@
 import unittest
-from xontrib.src import filepath
+from xontrib.enhancd_lib import filepath
 
 class TestFilePath(unittest.TestCase): 
     def test_split_filterlist(self):

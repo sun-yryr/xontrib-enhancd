@@ -28,13 +28,3 @@ def list_parents(reverse=False):
 def list_children():
     p = Path().resolve()
     return [str(a) for a in p.iterdir() if a.is_dir() and a.name[0]!="."]
-
-# def interactive_step():
-#     history = list_step(reverse=True)
-#     l = []
-#     for s in history:
-#         name = Path(s).name
-#         if name == "":
-#             l.append("/")
-#         else:
-#             l.append(name)
