@@ -1,6 +1,8 @@
 import xonsh
-from .src import test1
+from .src.cd import __main
+from .src.variable import reload_variables
 
 __all__ = ()
 
-print("a")
+aliases["cd"] = __main
+aliases["enhancd_reload"] = reload_variables
