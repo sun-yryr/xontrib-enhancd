@@ -1,6 +1,5 @@
 from fuzzysearch import find_near_matches
-from . import x_execer
-from .variable import *
+from . import x_execer, filepath, x_env
 import subprocess
 
 def f_search(keyword: str, paths: [str]):
@@ -15,8 +14,11 @@ def interactive(l: [str]):
     if len(l) <= 0:
         return None
     str_list = repr("\n".join(l))
-    tmpFile = ENHANCD_DIR / "tmp"
-    x_execer.eval(f'echo {str_list} | peco > {str(tmpFile)}')
+    tmpFile = x_env["ENHANCD_DIR"] / "tmp"
+    filterCmd = filepath.split_filterlist(x_env["ENHANCD_FILTER"])
+    if filterCmd is None:
+        return None
+    x_execer.eval(f'echo {str_list} | {filterCmd} > {str(tmpFile)}')
     file = open(tmpFile, "r")
     select = str(file.read())
     file.close()
