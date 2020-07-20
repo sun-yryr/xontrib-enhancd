@@ -1,8 +1,8 @@
-from .variable import *
+from pathlib import Path
 from . import filepath, filter as fil, x_env
 
 def open_history():
-    logpath = ENHANCD_DIR / "enhancd.log"
+    logpath = x_env["ENHANCD_DIR"] / "enhancd.log"
     with open(logpath, "r") as f:
         return f.read().rstrip("\n").split("\n")
 
@@ -17,7 +17,7 @@ def update_history():
     newHistory.reverse()
     if len(newHistory) > 0:
         newHistory = list(filter(lambda a: a != '', newHistory))
-        logpath = ENHANCD_DIR / "enhancd.log"
+        logpath = x_env["ENHANCD_DIR"] / "enhancd.log"
         with open(logpath, "w") as f:
             return f.write("\n".join(newHistory))
 
@@ -34,12 +34,12 @@ def get_history_list(keyword=None):
     return history
 
 def get_latest_history(keyword: str=None):
-    if ENHANCD_DISABLE_HYPHEN == 1:
-        return OLDPWD
+    if x_env["ENHANCD_DISABLE_HYPHEN"] == "1":
+        return x_env["ENHANCD_OLDPWD"]
     l = get_history_list()
     if x_env["HOME"] in l:
         l.remove(x_env["HOME"])
-    l = l[:int(ENHANCD_HYPHEN_NUM)]
+    l = l[:int(x_env["ENHANCD_HYPHEN_NUM"])]
     return l
 
 def unique(history: [str]):

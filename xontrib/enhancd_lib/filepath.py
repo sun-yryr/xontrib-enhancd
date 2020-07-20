@@ -8,15 +8,16 @@ def split_filterlist(s: str):
         s (str): [FilterCommands ex: peco:fzf]
 
     Returns:
-        [bool]
+        [str or None]
     """    
     if not s:
         exit(1)
     for filterCmd in s.split(":"):
         pc = run(['which', filterCmd], stdout=DEVNULL)
         if pc.returncode == 0:
-            return True
-    return False
+            return filterCmd
+    print("not found filter tool")
+    return None
 
 def list_parents(reverse=False):
     p = Path().resolve()
