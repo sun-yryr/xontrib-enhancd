@@ -4,7 +4,7 @@ __xonsh__ = {
     "env": {
 
     },
-    "execer": lambda: 'sample'
+    "execer": MagicMock()
 }
 mock_xonsh = MagicMock()
 mock_xonsh.__getitem__.side_effect = __xonsh__.__getitem__
