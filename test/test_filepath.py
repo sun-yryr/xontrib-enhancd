@@ -16,11 +16,23 @@ class TestFilePath(unittest.TestCase):
     
     @patch('xontrib.enhancd_lib.filepath.run')
     def test_split_filterlist(self, mock):
-        from xontrib.enhancd_lib import filepath
+        from xontrib.enhancd_lib.filepath import split_filterlist
         i = 'peco:fzf:c'
-        o = filepath.split_filterlist(i)
+        o = split_filterlist(i)
         self.assertIsNone(o)
         self.assertEqual(len(i.split(':')), mock.call_count)
+
+    def test_list_parents(self):
+        from xontrib.enhancd_lib.filepath import list_parents
+        res = list_parents()
+        self.assertIsInstance(res, list)
+    
+    def test_list_children(self):
+        from xontrib.enhancd_lib.filepath import list_children
+        res = list_children()
+        self.assertIsInstance(res, list)
+        
+
 
 if __name__ == "__main__":
     unittest.main()
